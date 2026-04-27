@@ -19,19 +19,14 @@ class SensorData(BaseModel):
 
 
 def send_to_cloud(data_to_send: dict):
-    """
-    Simulates sending data to a remote cloud server.
-    """
     print(f"☁️ Cloud Sync: Attempting to upload to {CLOUD_URL}...")
+    # Use json=data_to_send for proper API communication
+    response = requests.post(CLOUD_URL, json=data_to_send)
 
-    # 1. TODO: Use requests.post() to send the 'data_to_send' to 'CLOUD_URL'
-    # 2. TODO: Check if response.status_code is 200 or 201.
-    # 3. TODO: Print "Sync Success" or "Sync Failed" based on the result.
-    response = requests.post(CLOUD_URL, data_to_send)
     if response.status_code in [200, 201]:
-        print("Sync Success")
+        print("✅ Sync Success")
     else:
-        print("Sync Failed")
+        print(f"❌ Sync Failed with status: {response.status_code}")
 
 
 @app.post("/process-sensors")
