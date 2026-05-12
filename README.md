@@ -38,3 +38,16 @@ Successfully transitioned the local navigation logic into a secure, cloud-ready 
 ---
 
 _Next Step: Week 3 - Advanced Data Visualization & Real-time Dashboards._
+# 🤖 Autonomous Robot Telemetry & Monitoring Suite
+
+A 3-tier system designed to process, secure, and visualize real-time robotic sensor data.
+
+## 🏗 System Architecture
+1. **Core Logic (NumPy):** Signal processing pipeline with noise filtering (Boolean Masking) and temporal smoothing (Moving Averages).
+2. **Backend API (FastAPI):** Secured REST API with API Key authentication, persistent JSON logging, and asynchronous cloud synchronization.
+3. **Live Dashboard (Matplotlib):** Real-time telemetry feed with automated incident reporting (auto-saves snapshots of critical system failures).
+
+## 🚀 How to Run
+1. **Start the API:** `uvicorn main:app --reload`
+2. **Start the Dashboard:** `python Day20_Incident_Reporter.py`
+3. **Simulate Data:** Use the Swagger UI at `http://127.0.0`
